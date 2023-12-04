@@ -1,0 +1,167 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background:linear-gradient(90deg, #0C164D 0%, #190B22 100%);
+}
+.firstPageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%vh;
+    width: 100%vw;
+}
+ .titleText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 3rem;
+    margin-right: 2.5rem;
+ }
+h1 {
+    font-size: 3rem;
+    letter-spacing: 0.5ch;
+    color: white; 
+    margin-bottom: 0.5rem;
+}
+h2 {
+    font-size: 2rem;
+    font-weight:75;
+    letter-spacing: 0.8ch;
+    color: Yellow;
+}
+.heart {
+    color: red;
+}
+
+h3 {
+    color: blue;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+
+.planets {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+#sun {
+    width: 60rem;
+    height: 60rem;
+    border-radius: 50%;
+    background-color: #FFD029;
+    margin-left: -50rem;
+}
+
+#neptune {
+    height: 4.125rem;
+    width: 4.125rem;
+    background-color: #7A91A7;
+}
+#uranus {
+    height: 4.125rem;
+    width: 4.125rem;
+    background-color: #C9D4F1;
+}
+#saturn {
+    height: 9rem;
+    width: 9rem;
+    background-color: #C7AA72;
+}
+
+#ringSaturn {
+    
+}
+
+#jupiter {
+    height: 11.75rem;
+    width: 11.75rem;
+    background-color: #E29468;
+}
+
+#mars {
+    height: 0.875rem;
+    width: 0.875rem;
+    background-color: #EF5F5F;
+}
+
+#earth {
+    height: 1.75rem;
+    width: 1.75rem;
+    background-color: #428ED4;
+}
+
+#venus {
+    height: 1.625rem;
+    width: 1.625rem;
+    background-color: #E7CDCC;
+}
+
+#mercury {
+    height: 0.875rem;
+    width: 0.875rem;
+    background-color: #8B8A85;
+}
+
+.ellipse {
+    border-radius: 50%;
+    margin: 0 10px;
+    box-shadow: inset 0 0 10px rgba(23, 22, 22);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.textPopupBackground {
+    background: linear-gradient(90deg, #0C164D 0%, #190B22 100%);
+    display: flex;
+    flex-direction: column;
+    height: 100%vh;
+    width: 100%vw;
+    display: block;
+    
+}
+
+.blueSun {
+    background-color: #428ED4;
+    width: 60rem;
+    height: 60rem;
+    border-radius: 50%;
+    background-color: #FFD029;
+    margin-left: -50rem;
+    }
+
+.textPopup {
+    display: none;
+    position: fixed;
+    /*position: relative;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* transparent background*/
+    width: 60%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.001); /* transparency*/
+    border-radius: 8px;
+    border: 1px solid red;
+}
+
+p {
+    color: red;
+    font-size: 1.5rem;
+    letter-spacing: 0.1ch;
+}
+
+.closeButton {
+ position: absolute;
+ top: 10px;
+ right: 10px;
+}
