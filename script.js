@@ -5,10 +5,10 @@ const getKey = async () => {
     const response = await fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys', {
         method: 'POST',  //'POST' to get the key)    
     }) 
-    const data = await response.json();
-    console.log(data); // Log the whole object
-    //console.log(data.key);  // Log the key ( solaris-i0jmhtjgqKZhp6Hl )before returning it
-    return data.key;   
+        const data = await response.json();
+        console.log(data); // Log the whole object
+        //console.log(data.key);  // Log the key ( solaris-i0jmhtjgqKZhp6Hl )before returning it
+        return data.key;   
 }
 // getKey(); // Calls the function
 
@@ -18,8 +18,8 @@ const fetchData = async (apiKey) => {
         method: 'GET',  // to get the data (before this, I used 'POST)
         headers: {'x-zocom': apiKey} // Got the key after POST-method   
     }) 
-    const planetData = await response.json();
-    return planetData; 
+        const planetData = await response.json();
+        return planetData; 
 }
 
 const removeTextPopup = () => {
@@ -33,57 +33,57 @@ const removeTextPopup = () => {
 const showPlanetData = (singlePlanetData) => {
     document.querySelector('.firstPageContainer').style.display = 'none';
     document.querySelector('.textPopupBackground').style.display = 'block';
-    if (!singlePlanetData) {
-        console.log('singlePlanetData is undefined!');
-        return;
-    }
+        if (!singlePlanetData) {
+            console.log('singlePlanetData is undefined!');
+            return;
+        }
     /********create a new div adding class 'textPopup'*/ 
     const textPopup = document.createElement('div');
     textPopup.classList.add('textPopup'); 
     textPopup.style.display = 'block';
 
-/***********create new div p for adding text*/
-const h2 = document.createElement('h2')
-h2.textContent = singlePlanetData.name;
+    /***********create new div p for adding text*/
+    const h2 = document.createElement('h2')
+    h2.textContent = singlePlanetData.name;
 
-const h3 = document.createElement('h3')
-h3.textContent = singlePlanetData.latinName;
+    const h3 = document.createElement('h3')
+    h3.textContent = singlePlanetData.latinName;
 
-const p = document.createElement('p');
-p.textContent = 'Här är lite information om planeten.';
+    const p = document.createElement('p');
+    p.textContent = 'Här är lite information om planeten.';
 
-let text = `Rotationshastighet: ${singlePlanetData.rotation}<br> Dagtemperatur: ${singlePlanetData.temp.day} <br>Nattemperatur: ${singlePlanetData.temp.night} Distansen från solen är: ${singlePlanetData.distance}<br>Planetens månar: ${singlePlanetData.moons.join(', ')}`;
+    let text = `Rotationshastighet: ${singlePlanetData.rotation}<br> Dagtemperatur: ${singlePlanetData.temp.day} <br>Nattemperatur: ${singlePlanetData.temp.night} Distansen från solen är: ${singlePlanetData.distance}<br>Planetens månar: ${singlePlanetData.moons.join(', ')}`;
 
-p.innerHTML = text;
+    p.innerHTML = text;
 
-/******Adding p in textPopup-div*/
-textPopup.appendChild(h2);
-textPopup.appendChild(h3);
-textPopup.appendChild(p);
-/********Showing the text centered***/
-textPopup.style.display = 'flex';
+    /******Adding p in textPopup-div*/
+    textPopup.appendChild(h2);
+    textPopup.appendChild(h3);
+    textPopup.appendChild(p);
+    /********Showing the text centered***/
+    textPopup.style.display = 'flex';
 
-        /*******adding textPopup-div to the document*/
-document.querySelector('.textPopupBackground').appendChild(textPopup);
-// document.body.appendChild(textPopup);
+            /*******adding textPopup-div to the document*/
+    document.querySelector('.textPopupBackground').appendChild(textPopup);
+    document.popupBackground.appendChild(textPopup);
 
-        /**********Create close-button */
- const closeButton = document.createElement('button');
- closeButton.textContent = 'X';
- closeButton.classList.add('closeButton');
- textPopup.appendChild(closeButton);
+            /**********Create close-button */
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    closeButton.classList.add('closeButton');
+    textPopup.appendChild(closeButton);
 
-        /*********Eventlistener for the closebutton */
-  closeButton.addEventListener('click', () => {
-    removeTextPopup();
-   })
+            /*********Eventlistener for the closebutton */
+    closeButton.addEventListener('click', () => {
+        removeTextPopup();
+    })
 }
 
 /********Show background for textPopup ***/
 const showPopupBackground = (textPopupBackground) => {
     
 }
-document.body.classList.add('textPopupBackground');
+/*document.body.classList.add('textPopupBackground');
 
 /**********Selecting all the planets */
 const handleClickedPlanets = (planetData) => {

@@ -8,6 +8,13 @@
 html {
     background:linear-gradient(90deg, #0C164D 0%, #190B22 100%);
 }
+
+body {
+    width: 100vw;
+    height: 100vh;
+    border: 2px red solid;
+}
+
 .firstPageContainer {
     display: flex;
     flex-direction: column;
@@ -74,9 +81,9 @@ h3 {
     background-color: #C7AA72;
 }
 
-#ringSaturn {
+/*#ringSaturn {
     
-}
+}*/
 
 #jupiter {
     height: 11.75rem;
