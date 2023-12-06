@@ -25,14 +25,16 @@ const fetchData = async (apiKey) => {
 }
 
 const removeTextPopup = () => {
+
     const textPopup = document.querySelector('.textPopup');
-    textPopup.style.display = 'none';
+    textPopup.remove();
+    firstPageContainer.style.display = 'flex';
 }
 
 /*****Function for handling data from planet array */
 const showPlanetData = (singlePlanetData) => {
    firstPageContainer.style.display = 'none';
-    textPopupBackground.style.display = 'block';
+    textPopupBackground.style.display = 'flex';
         if (!singlePlanetData) {
             console.log('singlePlanetData is undefined!');
             return;
@@ -87,17 +89,17 @@ const showPopupBackground = (textPopupBackground) => {
 
 /**********Selecting all the planets */
 const handleClickedPlanets = (planetData) => {
- const ellipseNodeList = document.querySelectorAll('.ellipse'); //hämtar en nodeList
+    const textPopupBackground = document.querySelector('.textPopupBackground');
+    textPopupBackground.style.display = 'flex'
+;    const ellipseNodeList = document.querySelectorAll('.ellipse'); //hämtar en nodeList
  const ellipseEl = Array.from(ellipseNodeList); // Convert buttons NodeList to an array
-            console.log(ellipseEl); 
 
  // variabeln index håller koll på vilket element vi är på i arrayen.
  ellipseEl.forEach((singleElement, index) => { //loopar igenom planeterna
      singleElement.addEventListener('click', () => {
-            console.log('Planet clicked!'); 
-        const style = window.getComputedStyle(singleElement);
-        console.log(style);   
+        const style = window.getComputedStyle(singleElement); 
         const singlePlanetData = planetData.bodies[index]; 
+        console.log(style.backgroundColor);
         colorChange(style.backgroundColor);
          showPlanetData(singlePlanetData);
         });
@@ -106,11 +108,12 @@ const handleClickedPlanets = (planetData) => {
 
 // Color function
 const colorChange = (newColor) => {
-    const blueSun = document.querySelector('.blueSun')
-   blueSun.style.backgroundColor = newColor
+    const haloPlanets = Array.from(document.querySelectorAll('.haloPlanet'));
+    haloPlanets.forEach((haloPlanet) => {
+        haloPlanet.style.backgroundColor = newColor;
+    })
 }
     
-
 /****** Await all resources to load, before javascript is executed */
 window.onload = async function(){
  /**** 1. Fetch api-key

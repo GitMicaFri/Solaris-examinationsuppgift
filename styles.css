@@ -127,14 +127,28 @@ h3 {
     width: 100vw;
 }
 
-.blueSun {
-    background-color: #428ED4;
-    width: 60rem;
-    height: 60rem;
+.haloPlanet {
     border-radius: 50%;
-    background-color: #FFD029;
     margin-left: -50rem;
     }
+
+#haloPlanetMain {
+    width: 60rem;
+    height: 60rem;
+    opacity: 1;
+}
+
+#haloPlanetMiddle {
+    width: calc(60rem + 20px);
+    height: calc(60rem + 20px);
+    opacity: 0.5;
+}
+
+#haloPlanetOuter {
+    width: calc(60rem + 40px);
+    height: calc(60rem + 40px);
+    opacity: 0.3;
+}
 
 .textPopup {
     /*display: none;*/
