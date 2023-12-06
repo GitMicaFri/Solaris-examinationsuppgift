@@ -1,5 +1,7 @@
-// Fetch and store api-key
+const firstPageContainer = document.querySelector('.firstPageContainer');
+const textPopupBackground = document.querySelector('.textPopupBackground');
 
+// Fetch and store api-key
 const getKey = async () => {
     //console.log('getKey called'); //Logs when getKey is called
     const response = await fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys', {
@@ -23,16 +25,14 @@ const fetchData = async (apiKey) => {
 }
 
 const removeTextPopup = () => {
-    document.querySelector('.firstPageContainer').style.display = 'flex';
-    document.querySelector('.textPopupBackground').style.display = 'none';
     const textPopup = document.querySelector('.textPopup');
-    textPopup.remove();
+    textPopup.style.display = 'none';
 }
 
 /*****Function for handling data from planet array */
 const showPlanetData = (singlePlanetData) => {
-    document.querySelector('.firstPageContainer').style.display = 'none';
-    document.querySelector('.textPopupBackground').style.display = 'block';
+   firstPageContainer.style.display = 'none';
+    textPopupBackground.style.display = 'block';
         if (!singlePlanetData) {
             console.log('singlePlanetData is undefined!');
             return;
@@ -65,7 +65,7 @@ const showPlanetData = (singlePlanetData) => {
 
             /*******adding textPopup-div to the document*/
     document.querySelector('.textPopupBackground').appendChild(textPopup);
-    document.popupBackground.appendChild(textPopup);
+    //document.popupBackground.appendChild(textPopup);
 
             /**********Create close-button */
     const closeButton = document.createElement('button');
@@ -94,17 +94,22 @@ const handleClickedPlanets = (planetData) => {
  // variabeln index håller koll på vilket element vi är på i arrayen.
  ellipseEl.forEach((singleElement, index) => { //loopar igenom planeterna
      singleElement.addEventListener('click', () => {
-            console.log('Planet clicked!');
-            console.log(planetData);
-            console.log(index);
-            console.log(planetData.bodies[index]);
-            console.log(planetData.bodies.length); 
-            console.log(ellipseEl.length);      
-         const singlePlanetData = planetData.bodies[index]; 
+            console.log('Planet clicked!'); 
+        const style = window.getComputedStyle(singleElement);
+        console.log(style);   
+        const singlePlanetData = planetData.bodies[index]; 
+        colorChange(style.backgroundColor);
          showPlanetData(singlePlanetData);
         });
     });
 }
+
+// Color function
+const colorChange = (newColor) => {
+    const blueSun = document.querySelector('.blueSun')
+   blueSun.style.backgroundColor = newColor
+}
+    
 
 /****** Await all resources to load, before javascript is executed */
 window.onload = async function(){

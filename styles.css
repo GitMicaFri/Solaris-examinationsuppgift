@@ -5,21 +5,17 @@
     box-sizing: border-box;
 }
 
-html {
-    background:linear-gradient(90deg, #0C164D 0%, #190B22 100%);
-}
-
 body {
     width: 100vw;
     height: 100vh;
-    border: 2px red solid;
 }
 
 .firstPageContainer {
+    background:linear-gradient(90deg, #0C164D 0%, #190B22 100%);
     display: flex;
     flex-direction: column;
-    height: 100%vh;
-    width: 100%vw;
+    height: 100vh;
+    width: 100vw;
 }
  .titleText {
     display: flex;
@@ -125,12 +121,10 @@ h3 {
 
 .textPopupBackground {
     background: linear-gradient(90deg, #0C164D 0%, #190B22 100%);
-    display: flex;
+    display: none;
     flex-direction: column;
-    height: 100%vh;
-    width: 100%vw;
-    display: block;
-    
+    height: 100vh;
+    width: 100vw;
 }
 
 .blueSun {
@@ -143,7 +137,7 @@ h3 {
     }
 
 .textPopup {
-    display: none;
+    /*display: none;*/
     position: fixed;
     /*position: relative;*/
     display: flex;
@@ -159,6 +153,7 @@ h3 {
     background-color: rgba(0, 0, 0, 0.001); /* transparency*/
     border-radius: 8px;
     border: 1px solid red;
+    z-index: 1;
 }
 
 p {
