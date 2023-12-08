@@ -35,15 +35,19 @@ h2 {
     font-weight:75;
     letter-spacing: 0.8ch;
     color: Yellow;
+    text-transform:uppercase;
 }
 .heart {
     color: red;
 }
 
 h3 {
-    color: blue;
-    margin-top: 3rem;
+    color: rgb(156, 156, 243);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     font-size: 1.5rem;
+    letter-spacing: 0.6ch;
+    text-transform:uppercase;
 }
 
 .planets {
@@ -76,10 +80,6 @@ h3 {
     width: 9rem;
     background-color: #C7AA72;
 }
-
-/*#ringSaturn {
-    
-}*/
 
 #jupiter {
     height: 11.75rem;
@@ -128,6 +128,10 @@ h3 {
 }
 
 .haloPlanet {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
     border-radius: 50%;
     margin-left: -50rem;
     }
@@ -139,15 +143,15 @@ h3 {
 }
 
 #haloPlanetMiddle {
-    width: calc(60rem + 20px);
-    height: calc(60rem + 20px);
-    opacity: 0.5;
+    width: calc(60rem + 60px);
+    height: calc(60rem + 60px);
+    opacity: 0.2;
 }
 
 #haloPlanetOuter {
-    width: calc(60rem + 40px);
-    height: calc(60rem + 40px);
-    opacity: 0.3;
+    width: calc(60rem + 120px);
+    height: calc(60rem + 120px);
+    opacity: 0.1;
 }
 
 .textPopup {
@@ -161,23 +165,26 @@ h3 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* transparent background*/
-    width: 60%;
-    max-width: 400px;
+    width: 90%;
+    max-width: 600px;
     padding: 20px;
+    margin-left: 5rem;
     background-color: rgba(0, 0, 0, 0.001); /* transparency*/
     border-radius: 8px;
-    border: 1px solid red;
+    border: 1px solid  rgb(225, 255, 0);
     z-index: 1;
 }
 
 p {
-    color: red;
+    color: rgb(225, 255, 0);
     font-size: 1.5rem;
-    letter-spacing: 0.1ch;
+    letter-spacing: 0.3ch;
+    line-height: 2.5ch;;
 }
 
 .closeButton {
  position: absolute;
  top: 10px;
  right: 10px;
+ cursor: pointer;
 }

@@ -8,13 +8,13 @@ const getKey = async () => {
         method: 'POST',  //'POST' to get the key)    
     }) 
         const data = await response.json();
-        console.log(data); // Log the whole object
+        //console.log(data); // Log the whole object
         //console.log(data.key);  // Log the key ( solaris-i0jmhtjgqKZhp6Hl )before returning it
         return data.key;   
 }
-// getKey(); // Calls the function
+        // getKey(); // Calls the function
 
-// Fetch and store planet-data
+        // Fetch and store planet-data
 const fetchData = async (apiKey) => {
     const response = await fetch('https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies', {
         method: 'GET',  // to get the data (before this, I used 'POST)
@@ -39,6 +39,7 @@ const showPlanetData = (singlePlanetData) => {
             console.log('singlePlanetData is undefined!');
             return;
         }
+        
     /********create a new div adding class 'textPopup'*/ 
     const textPopup = document.createElement('div');
     textPopup.classList.add('textPopup'); 
@@ -54,7 +55,7 @@ const showPlanetData = (singlePlanetData) => {
     const p = document.createElement('p');
     p.textContent = 'Här är lite information om planeten.';
 
-    let text = `Rotationshastighet: ${singlePlanetData.rotation}<br> Dagtemperatur: ${singlePlanetData.temp.day} <br>Nattemperatur: ${singlePlanetData.temp.night} Distansen från solen är: ${singlePlanetData.distance}<br>Planetens månar: ${singlePlanetData.moons.join(', ')}`;
+    let text = `Rotationshastighet: ${singlePlanetData.rotation}<br><br> Dagtemperatur: ${singlePlanetData.temp.day}&#8451<br><br>Nattemperatur: ${singlePlanetData.temp.night}&#8451<br><br> Distans från solen: ${singlePlanetData.distance} km<br><br>Planetens månar: ${singlePlanetData.moons.join(', ')}`;
 
     p.innerHTML = text;
 
@@ -75,9 +76,14 @@ const showPlanetData = (singlePlanetData) => {
     closeButton.classList.add('closeButton');
     textPopup.appendChild(closeButton);
 
+    const haloPlanetEl = document.querySelectorAll('.haloPlanet');
             /*********Eventlistener for the closebutton */
     closeButton.addEventListener('click', () => {
-        removeTextPopup();
+        haloPlanetEl.forEach((element) => {
+            element.classList.remove('haloPlanet');
+            element.style.display = 'none'
+        })
+        removeTextPopup();  
     })
 }
 
@@ -99,7 +105,7 @@ const handleClickedPlanets = (planetData) => {
      singleElement.addEventListener('click', () => {
         const style = window.getComputedStyle(singleElement); 
         const singlePlanetData = planetData.bodies[index]; 
-        console.log(style.backgroundColor);
+        //console.log(style.backgroundColor);
         colorChange(style.backgroundColor);
          showPlanetData(singlePlanetData);
         });
