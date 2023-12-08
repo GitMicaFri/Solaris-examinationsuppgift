@@ -22,7 +22,7 @@ const fetchData = async (apiKey) => {
     }) 
         const planetData = await response.json();
         return planetData; 
-}//Tack!
+}
 
 const removeTextPopup = () => {
 
