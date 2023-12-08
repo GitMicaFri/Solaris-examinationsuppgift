@@ -12,7 +12,7 @@ const getKey = async () => {
         //console.log(data.key);  // Log the key ( solaris-i0jmhtjgqKZhp6Hl )before returning it
         return data.key;   
 }
-        // getKey(); // Calls the function
+        // getKey(); // Calls the function  
 
         // Fetch and store planet-data
 const fetchData = async (apiKey) => {
@@ -22,7 +22,7 @@ const fetchData = async (apiKey) => {
     }) 
         const planetData = await response.json();
         return planetData; 
-}
+}//Tack!
 
 const removeTextPopup = () => {
 
@@ -114,7 +114,8 @@ const handleClickedPlanets = (planetData) => {
 
 // Color function
 const colorChange = (newColor) => {
-    const haloPlanets = Array.from(document.querySelectorAll('.haloPlanet'));
+    const haloPlanets = Array.from(document.querySelectorAll('.haloPlanet')); // 
+
     haloPlanets.forEach((haloPlanet) => {
         haloPlanet.style.backgroundColor = newColor;
     })
