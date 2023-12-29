@@ -77,10 +77,10 @@ const showPlanetData = (singlePlanetData) => {
     textPopup.appendChild(closeButton);
 
     const haloPlanetEl = document.querySelectorAll('.haloPlanet');
+    haloPlanetEl.forEach(element => element.style.display = 'block')
             /*********Eventlistener for the closebutton */
     closeButton.addEventListener('click', () => {
         haloPlanetEl.forEach((element) => {
-            element.classList.remove('haloPlanet');
             element.style.display = 'none'
         })
         removeTextPopup();  
